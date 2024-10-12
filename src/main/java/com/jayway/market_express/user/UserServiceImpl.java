@@ -28,7 +28,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public CreateUserResponse registerUser(CreateUserRequest request) {
-        //otpService.ensureValidOtp(request.getCellphone(), request.getOtp());
+        otpService.ensureValidOtp(request.getCellphone(), request.getOtp());
         DocumentNumberRequest documentNumberRequest = DocumentNumberRequest.create(request.getDocumentNumber());
         DocumentNumberResponse documentNumberResponse = documentNumberReniecRepository.getDocumentNumberInformation(documentNumberRequest);
         Optional.ofNullable(documentNumberResponse)
@@ -37,13 +37,15 @@ public class UserServiceImpl implements UserService {
                     String message = StringUtil.buildConstantMessageFromText(request.getDocumentNumber(), NOT_FOUND_MESSAGE);
                     return GenericClientException.create(DOCUMENT_NUMBER_NOT_FOUND, message, HttpStatus.UNPROCESSABLE_ENTITY);
                 });
+        String fullName = documentNumberResponse.getData().getFullName().replace(",","");
+        fullName = StringUtil.toTitleCase(fullName);
         userRepository.findByCellphoneAndStatus(request.getCellphone(), EntityStatusType.ACTIVE.getCode())
                 .ifPresent(user -> {
                     String message = StringUtil.buildConstantMessageFromText(user.getCellphone(), ALREADY_EXISTS_MESSAGE);
                     throw GenericClientException.create(message, HttpStatus.UNPROCESSABLE_ENTITY);
                 });
 
-        UserEntity createUser = UserEntity.create(request.getFullName(),
+        UserEntity createUser = UserEntity.create(fullName,
                 request.getCellphone(),
                 request.getDocumentNumber(),
                 request.getBirthDate(),

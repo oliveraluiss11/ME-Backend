@@ -12,7 +12,6 @@ import java.time.LocalDate;
 public class CreateUserRequest {
     private String cellphone;
     private String documentNumber;
-    private String fullName;
     private LocalDate birthDate;
     private String otp;
 }
