@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: market-express
+  data:
+    mongodb:
+      uri: mongodb+srv://${DB_USERNAME}:${DB_PASSWORD}@${DB_HOST}/${DB_NAME}?retryWrites=true&w=majority&appName=${DB_HOST}
+
+jwt:
+  key: ${jwt.key}
+
+api:
+  key: ${api.key}
+
+twilio:
+  account-sid: ${twilio.account-sid}
+  auth-token: ${twilio.auth-token}
+  from-number: ${twilio.from-number}
+
+reniec:
+  url: ${reniec.url}
+  token: ${reniec.token}
+
+cors:
+  allowed:
+    origin: ${cors.allowed.origin}
+#logging:
+#  level:
+#    org.springframework.security: DEBUG
