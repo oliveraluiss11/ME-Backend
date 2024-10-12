@@ -26,7 +26,6 @@ cors:
 management:
   endpoints:
     web:
-      base-path: "/"
       exposure:
         include: "*"
   endpoint:
@@ -36,7 +35,7 @@ management:
     mongo:
       enabled: true
   security:
-    enabled: false
+    enabled: false  # Deshabilitar la seguridad de Actuator (NO recomendado en producción)
 #logging:
 #  level:
 #    org.springframework.security: DEBUG

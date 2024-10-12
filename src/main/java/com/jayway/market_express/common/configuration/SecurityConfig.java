@@ -33,15 +33,14 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.GET, "/categories", "/products").permitAll()
                         .requestMatchers(HttpMethod.POST, "/orders").hasAnyRole(RoleType.CUSTOMER.getCode(), RoleType.ADMIN.getCode())
                         .requestMatchers(HttpMethod.PUT, "/orders/**").hasAnyRole(RoleType.ADMIN.getCode(), RoleType.STORE.getCode(), RoleType.RIDER.getCode())
+                        .requestMatchers(HttpMethod.GET, "/actuator/**").permitAll()
                         .anyRequest().authenticated()
                 )
                 .sessionManagement(session -> session
                         .sessionCreationPolicy(SessionCreationPolicy.STATELESS) // Sin sesiones (uso de JWT)
                 )
                 .exceptionHandling(exceptionHandling ->
-                        exceptionHandling.authenticationEntryPoint((request, response, authException) -> {
-                            response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Unauthorized");
-                        })
+                        exceptionHandling.authenticationEntryPoint((request, response, authException) -> response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Unauthorized"))
                 )
                 .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class); // Añadir el filtro JWT
 
