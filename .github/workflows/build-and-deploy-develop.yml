@@ -26,9 +26,9 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build -t market-express.jar .
-          docker tag market-express.jar ${{ secrets.DOCKER_USERNAME }}/market-express.jar:develop
-          docker push ${{ secrets.DOCKER_USERNAME }}/market-express.jar:develop
+          docker build -t market-express .
+          docker tag market-express ${{ secrets.DOCKER_USERNAME }}/market-express:develop
+          docker push ${{ secrets.DOCKER_USERNAME }}/market-express:develop
 
   deploy:
     runs-on: ubuntu-latest
