@@ -30,10 +30,12 @@ public class SecurityConfig {
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(authorize -> authorize
                         .requestMatchers(HttpMethod.POST, "/login/**", "/riders", "/users", "/otp").permitAll()
-                        .requestMatchers(HttpMethod.GET, "/categories", "/products").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/categories", "/products", "/images").permitAll()
+                        .requestMatchers(HttpMethod.POST,"/products", "/categories", "/stores").hasAnyRole(RoleType.ADMIN.getCode())
                         .requestMatchers(HttpMethod.POST, "/orders").hasAnyRole(RoleType.CUSTOMER.getCode(), RoleType.ADMIN.getCode())
                         .requestMatchers(HttpMethod.PUT, "/orders/**").hasAnyRole(RoleType.ADMIN.getCode(), RoleType.STORE.getCode(), RoleType.RIDER.getCode())
                         .requestMatchers(HttpMethod.GET, "/actuator/**").permitAll()
+                        .requestMatchers("/firebase/**").hasAnyRole(RoleType.ADMIN.getCode(), RoleType.STORE.getCode())
                         .anyRequest().authenticated()
                 )
                 .sessionManagement(session -> session

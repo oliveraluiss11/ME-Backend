@@ -17,44 +17,57 @@ public class EnvironmentUtil {
     private final Environment environment;
 
     public String getAccountSid() {
-        String accountSid = environment.getProperty(TWILIO_ACCOUNT_SID);
-        String message = StringUtil.buildConstantMessageFromText(TWILIO_ACCOUNT_SID, NOT_FOUND_MESSAGE);
-        return Optional.ofNullable(accountSid)
+        String name = TWILIO_ACCOUNT_SID;
+        String property = environment.getProperty(name);
+        String message = StringUtil.buildConstantMessageFromText(name, NOT_FOUND_MESSAGE);
+        return Optional.ofNullable(property)
                 .orElseThrow(() -> GenericClientException.create(message, HttpStatus.NOT_FOUND));
     }
 
     public String getAuthToken() {
-        String accountSid = environment.getProperty(TWILIO_AUTH_TOKEN);
-        String message = StringUtil.buildConstantMessageFromText(TWILIO_ACCOUNT_SID, NOT_FOUND_MESSAGE);
-        return Optional.ofNullable(accountSid)
+        String name = TWILIO_AUTH_TOKEN;
+        String property = environment.getProperty(name);
+        String message = StringUtil.buildConstantMessageFromText(name, NOT_FOUND_MESSAGE);
+        return Optional.ofNullable(property)
                 .orElseThrow(() -> GenericClientException.create(message, HttpStatus.NOT_FOUND));
     }
 
     public String getFromNumber() {
-        String accountSid = environment.getProperty(TWILIO_FROM_NUMBER);
-        String message = StringUtil.buildConstantMessageFromText(TWILIO_ACCOUNT_SID, NOT_FOUND_MESSAGE);
-        return Optional.ofNullable(accountSid)
+        String name = TWILIO_FROM_NUMBER;
+        String property = environment.getProperty(name);
+        String message = StringUtil.buildConstantMessageFromText(name, NOT_FOUND_MESSAGE);
+        return Optional.ofNullable(property)
                 .orElseThrow(() -> GenericClientException.create(message, HttpStatus.NOT_FOUND));
     }
 
     public String getReniecToken() {
-        String accountSid = environment.getProperty(RENIEC_TOKEN);
-        String message = StringUtil.buildConstantMessageFromText(RENIEC_TOKEN, NOT_FOUND_MESSAGE);
-        return Optional.ofNullable(accountSid)
+        String name = RENIEC_TOKEN;
+        String property = environment.getProperty(name);
+        String message = StringUtil.buildConstantMessageFromText(name, NOT_FOUND_MESSAGE);
+        return Optional.ofNullable(property)
                 .orElseThrow(() -> GenericClientException.create(message, HttpStatus.NOT_FOUND));
     }
 
     public String getReniecUrl() {
-        String accountSid = environment.getProperty(RENIEC_URL);
-        String message = StringUtil.buildConstantMessageFromText(RENIEC_URL, NOT_FOUND_MESSAGE);
-        return Optional.ofNullable(accountSid)
+        String name = RENIEC_URL;
+        String property = environment.getProperty(name);
+        String message = StringUtil.buildConstantMessageFromText(name, NOT_FOUND_MESSAGE);
+        return Optional.ofNullable(property)
                 .orElseThrow(() -> GenericClientException.create(message, HttpStatus.NOT_FOUND));
     }
 
     public String getAllowedOrigin() {
-        String accountSid = environment.getProperty(CORS_ALLOWED_ORIGIN);
-        String message = StringUtil.buildConstantMessageFromText(RENIEC_URL, NOT_FOUND_MESSAGE);
-        return Optional.ofNullable(accountSid)
+        String name = CORS_ALLOWED_ORIGIN;
+        String property = environment.getProperty(name);
+        String message = StringUtil.buildConstantMessageFromText(name, NOT_FOUND_MESSAGE);
+        return Optional.ofNullable(property)
+                .orElseThrow(() -> GenericClientException.create(message, HttpStatus.NOT_FOUND));
+    }
+    public String getFirebaseBucketName() {
+        String name = FIREBASE_BUCKET_NAME;
+        String property = environment.getProperty(name);
+        String message = StringUtil.buildConstantMessageFromText(name, NOT_FOUND_MESSAGE);
+        return Optional.ofNullable(property)
                 .orElseThrow(() -> GenericClientException.create(message, HttpStatus.NOT_FOUND));
     }
 }

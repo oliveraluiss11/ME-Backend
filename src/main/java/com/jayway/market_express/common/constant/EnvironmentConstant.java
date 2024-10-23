@@ -7,4 +7,5 @@ public class EnvironmentConstant {
     public static final String RENIEC_TOKEN = "reniec.token";
     public static final String RENIEC_URL = "reniec.url";
     public static final String CORS_ALLOWED_ORIGIN = "cors.allowed.origin";
+    public static final String FIREBASE_BUCKET_NAME = "firebase.bucket.name";
 }
