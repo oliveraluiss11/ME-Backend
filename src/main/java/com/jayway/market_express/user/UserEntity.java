@@ -26,10 +26,15 @@ public class UserEntity {
     private LocalDate birthDate;
     private String role;
     private String status;
+    private String storeId;
     private LocalDateTime registrationDate;
     private LocalDateTime updatedDate;
 
     public static UserEntity create(String fullName, String cellphone, String documentNumber, LocalDate birthDate, String role) {
-        return new UserEntity(null, fullName, cellphone, documentNumber, birthDate, role, EntityStatusType.ACTIVE.getCode(), getLocalDateTime(), null);
+        return new UserEntity(null, fullName, cellphone, documentNumber, birthDate, role, EntityStatusType.ACTIVE.getCode(), null, getLocalDateTime(), null);
+    }
+
+    public static UserEntity create(String fullName, String cellphone, String documentNumber, LocalDate birthDate, String role, String roleId) {
+        return new UserEntity(null, fullName, cellphone, documentNumber, birthDate, role, EntityStatusType.ACTIVE.getCode(), roleId, getLocalDateTime(), null);
     }
 }

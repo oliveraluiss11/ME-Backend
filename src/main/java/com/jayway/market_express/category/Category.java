@@ -10,8 +10,9 @@ import lombok.NoArgsConstructor;
 public class Category {
     private String code;
     private String name;
+    private String type;
 
-    public static Category create(String code, String name) {
-        return new Category(code, name);
+    public static Category create(String code, String name, String type) {
+        return new Category(code, name,type);
     }
 }

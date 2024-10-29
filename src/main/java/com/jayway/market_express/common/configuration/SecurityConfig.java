@@ -31,11 +31,11 @@ public class SecurityConfig {
                 .authorizeHttpRequests(authorize -> authorize
                         .requestMatchers(HttpMethod.POST, "/login/**", "/riders", "/users", "/otp").permitAll()
                         .requestMatchers(HttpMethod.GET, "/categories", "/products", "/images").permitAll()
-                        .requestMatchers(HttpMethod.POST,"/products", "/categories", "/stores").hasAnyRole(RoleType.ADMIN.getCode())
-                        .requestMatchers(HttpMethod.POST, "/orders").hasAnyRole(RoleType.CUSTOMER.getCode(), RoleType.ADMIN.getCode())
-                        .requestMatchers(HttpMethod.PUT, "/orders/**").hasAnyRole(RoleType.ADMIN.getCode(), RoleType.STORE.getCode(), RoleType.RIDER.getCode())
+                        .requestMatchers(HttpMethod.POST,"/products", "/categories", "/stores").hasAnyAuthority(RoleType.ADMIN.getCode())
+                        .requestMatchers(HttpMethod.POST, "/orders").hasAnyAuthority(RoleType.CUSTOMER.getCode(), RoleType.ADMIN.getCode())
+                        .requestMatchers(HttpMethod.PUT, "/orders/**").hasAnyAuthority(RoleType.ADMIN.getCode(), RoleType.STORE.getCode(), RoleType.RIDER.getCode())
                         .requestMatchers(HttpMethod.GET, "/actuator/**").permitAll()
-                        .requestMatchers("/firebase/**").hasAnyRole(RoleType.ADMIN.getCode(), RoleType.STORE.getCode())
+                        .requestMatchers("/firebase/**").hasAnyAuthority(RoleType.ADMIN.getCode(), RoleType.STORE.getCode())
                         .anyRequest().authenticated()
                 )
                 .sessionManagement(session -> session
@@ -44,7 +44,7 @@ public class SecurityConfig {
                 .exceptionHandling(exceptionHandling ->
                         exceptionHandling.authenticationEntryPoint((request, response, authException) -> response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Unauthorized"))
                 )
-                .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class); // Añadir el filtro JWT
+                .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
 
         return http.build();
     }
