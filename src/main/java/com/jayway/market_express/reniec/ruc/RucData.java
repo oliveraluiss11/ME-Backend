@@ -1,6 +1,6 @@
-package com.jayway.market_express.store;
+package com.jayway.market_express.reniec.ruc;
 
-public class StoreSunat {
+public class RucData {
     private String legalName;
     private String ruc;
     private String address;
