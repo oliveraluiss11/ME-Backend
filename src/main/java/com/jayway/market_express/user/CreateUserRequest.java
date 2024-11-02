@@ -14,4 +14,7 @@ public class CreateUserRequest {
     private String documentNumber;
     private LocalDate birthDate;
     private String otp;
+    private String address;
+    private String district;
+    private String province;
 }

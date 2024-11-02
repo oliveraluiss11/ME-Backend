@@ -1,4 +1,4 @@
-package com.jayway.market_express.user;
+package com.jayway.market_express.user.document;
 
 import com.jayway.market_express.common.enums.EntityStatusType;
 import lombok.AllArgsConstructor;
@@ -23,6 +23,7 @@ public class UserEntity {
     private String fullName;
     private String cellphone;
     private String documentNumber;
+    private UserAddressDto address;
     private LocalDate birthDate;
     private String role;
     private String status;
@@ -31,10 +32,15 @@ public class UserEntity {
     private LocalDateTime updatedDate;
 
     public static UserEntity create(String fullName, String cellphone, String documentNumber, LocalDate birthDate, String role) {
-        return new UserEntity(null, fullName, cellphone, documentNumber, birthDate, role, EntityStatusType.ACTIVE.getCode(), null, getLocalDateTime(), null);
+        return new UserEntity(null, fullName, cellphone, documentNumber, null, birthDate, role, EntityStatusType.ACTIVE.getCode(), null, getLocalDateTime(), null);
     }
-
+    public static UserEntity create(String fullName, String cellphone, String documentNumber, UserAddressDto address, LocalDate birthDate, String role) {
+        return new UserEntity(null, fullName, cellphone, documentNumber, address, birthDate, role, EntityStatusType.ACTIVE.getCode(), null, getLocalDateTime(), null);
+    }
     public static UserEntity create(String fullName, String cellphone, String documentNumber, LocalDate birthDate, String role, String roleId) {
-        return new UserEntity(null, fullName, cellphone, documentNumber, birthDate, role, EntityStatusType.ACTIVE.getCode(), roleId, getLocalDateTime(), null);
+        return new UserEntity(null, fullName, cellphone, documentNumber, null, birthDate, role, EntityStatusType.ACTIVE.getCode(), roleId, getLocalDateTime(), null);
+    }
+    public static UserEntity create(String fullName, String cellphone, String documentNumber, UserAddressDto address, LocalDate birthDate, String role, String roleId) {
+        return new UserEntity(null, fullName, cellphone, documentNumber, address, birthDate, role, EntityStatusType.ACTIVE.getCode(), roleId, getLocalDateTime(), null);
     }
 }

@@ -8,7 +8,7 @@ import com.jayway.market_express.common.util.StringUtil;
 import com.jayway.market_express.otp.OtpServiceImpl;
 import com.jayway.market_express.rider_status_history.RiderStatusHistoryEntity;
 import com.jayway.market_express.user.RoleType;
-import com.jayway.market_express.user.UserEntity;
+import com.jayway.market_express.user.document.UserEntity;
 import com.jayway.market_express.user.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;

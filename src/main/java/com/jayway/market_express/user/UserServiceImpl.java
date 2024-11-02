@@ -9,6 +9,8 @@ import com.jayway.market_express.otp.OtpService;
 import com.jayway.market_express.reniec.dni.DocumentNumberReniecRepository;
 import com.jayway.market_express.reniec.dni.DocumentNumberRequest;
 import com.jayway.market_express.reniec.dni.DocumentNumberResponse;
+import com.jayway.market_express.user.document.UserAddressDto;
+import com.jayway.market_express.user.document.UserEntity;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -44,10 +46,11 @@ public class UserServiceImpl implements UserService {
                     String message = StringUtil.buildConstantMessageFromText(user.getCellphone(), ALREADY_EXISTS_MESSAGE);
                     throw GenericClientException.create(message, HttpStatus.UNPROCESSABLE_ENTITY);
                 });
-
+        UserAddressDto address = UserAddressDto.create(request.getAddress(), request.getDistrict(), request.getProvince());
         UserEntity createUser = UserEntity.create(fullName,
                 request.getCellphone(),
                 request.getDocumentNumber(),
+                address,
                 request.getBirthDate(),
                 RoleType.CUSTOMER.getCode());
         UserEntity userCreated = userRepository.save(createUser);

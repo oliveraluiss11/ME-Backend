@@ -1,5 +1,6 @@
 package com.jayway.market_express.user;
 
+import com.jayway.market_express.user.document.UserEntity;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 import java.util.Optional;
