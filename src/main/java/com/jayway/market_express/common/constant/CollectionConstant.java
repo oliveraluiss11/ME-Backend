@@ -6,4 +6,5 @@ public class CollectionConstant {
     public static final String RIDER_COLLECTION = "rider";
     public static final String CATEGORY_COLLECTION = "category";
     public static final String RIDER_STATUS_HISTORY_COLLECTION = "rider_status_history";
+    public static final String STORE_COLLECTION = "store";
 }

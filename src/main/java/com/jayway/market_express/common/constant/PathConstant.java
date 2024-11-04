@@ -6,4 +6,5 @@ public class PathConstant {
     public static final String USER_PATH = "/users";
     public static final String RIDER_PATH = "/riders";
     public static final String CATEGORY_PATH = "/categories";
+    public static final String STORE_PATH = "/stores";
 }

@@ -1,4 +1,4 @@
-package com.jayway.market_express.store;
+package com.jayway.market_express.store.dto;
 
 import java.time.LocalTime;
 

@@ -1,4 +1,4 @@
-package com.jayway.market_express.store;
+package com.jayway.market_express.store.constant;
 
 public class StorePatternConstant {
     public static final String PHONE_PATTERN = "\\+?\\d+";

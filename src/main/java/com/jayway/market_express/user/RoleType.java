@@ -9,6 +9,7 @@ public enum RoleType {
     CUSTOMER("CUSTOMER", "Cliente"),
     ADMIN("ADMIN", "Administrador"),
     STORE("STORE", "Tienda"),
+    STORE_OWNER("STORE_OWNER", "Propietario de tienda"),
     RIDER("RIDER", "Repartidor");
 
     private final String code;

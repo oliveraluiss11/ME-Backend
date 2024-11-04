@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
@@ -30,17 +31,18 @@ public class UserEntity {
     private String storeId;
     private LocalDateTime registrationDate;
     private LocalDateTime updatedDate;
+    private BigDecimal currentBalance;
 
     public static UserEntity create(String fullName, String cellphone, String documentNumber, LocalDate birthDate, String role) {
-        return new UserEntity(null, fullName, cellphone, documentNumber, null, birthDate, role, EntityStatusType.ACTIVE.getCode(), null, getLocalDateTime(), null);
+        return new UserEntity(null, fullName, cellphone, documentNumber, null, birthDate, role, EntityStatusType.ACTIVE.getCode(), null, getLocalDateTime(), null, BigDecimal.ZERO);
     }
     public static UserEntity create(String fullName, String cellphone, String documentNumber, UserAddressDto address, LocalDate birthDate, String role) {
-        return new UserEntity(null, fullName, cellphone, documentNumber, address, birthDate, role, EntityStatusType.ACTIVE.getCode(), null, getLocalDateTime(), null);
+        return new UserEntity(null, fullName, cellphone, documentNumber, address, birthDate, role, EntityStatusType.ACTIVE.getCode(), null, getLocalDateTime(), null, BigDecimal.ZERO);
     }
     public static UserEntity create(String fullName, String cellphone, String documentNumber, LocalDate birthDate, String role, String roleId) {
-        return new UserEntity(null, fullName, cellphone, documentNumber, null, birthDate, role, EntityStatusType.ACTIVE.getCode(), roleId, getLocalDateTime(), null);
+        return new UserEntity(null, fullName, cellphone, documentNumber, null, birthDate, role, EntityStatusType.ACTIVE.getCode(), roleId, getLocalDateTime(), null, BigDecimal.ZERO);
     }
     public static UserEntity create(String fullName, String cellphone, String documentNumber, UserAddressDto address, LocalDate birthDate, String role, String roleId) {
-        return new UserEntity(null, fullName, cellphone, documentNumber, address, birthDate, role, EntityStatusType.ACTIVE.getCode(), roleId, getLocalDateTime(), null);
+        return new UserEntity(null, fullName, cellphone, documentNumber, address, birthDate, role, EntityStatusType.ACTIVE.getCode(), roleId, getLocalDateTime(), null, BigDecimal.ZERO);
     }
 }
