@@ -45,4 +45,8 @@ public class UserEntity {
     public static UserEntity create(String fullName, String cellphone, String documentNumber, UserAddressDto address, LocalDate birthDate, String role, String roleId) {
         return new UserEntity(null, fullName, cellphone, documentNumber, address, birthDate, role, EntityStatusType.ACTIVE.getCode(), roleId, getLocalDateTime(), null, BigDecimal.ZERO);
     }
+
+    public static UserEntity create(String fullName, String cellphone, String documentNumber, UserAddressDto address, LocalDate birthDate, String role, String roleId, BigDecimal currentBalance) {
+        return new UserEntity(null, fullName, cellphone, documentNumber, address, birthDate, role, EntityStatusType.ACTIVE.getCode(), roleId, getLocalDateTime(), null, currentBalance);
+    }
 }

@@ -1,7 +1,7 @@
 package com.jayway.market_express.common.configuration;
 
 import com.jayway.market_express.common.util.EnvironmentUtil;
-import com.jayway.market_express.user.RoleType;
+import com.jayway.market_express.common.enums.RoleType;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;

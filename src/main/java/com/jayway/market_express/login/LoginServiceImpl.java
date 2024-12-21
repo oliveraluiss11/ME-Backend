@@ -6,7 +6,7 @@ import com.jayway.market_express.common.util.JwtPayload;
 import com.jayway.market_express.common.util.JwtUtil;
 import com.jayway.market_express.common.util.StringUtil;
 import com.jayway.market_express.otp.OtpService;
-import com.jayway.market_express.user.UserRepository;
+import com.jayway.market_express.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;

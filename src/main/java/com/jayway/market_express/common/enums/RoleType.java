@@ -1,4 +1,4 @@
-package com.jayway.market_express.user;
+package com.jayway.market_express.common.enums;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

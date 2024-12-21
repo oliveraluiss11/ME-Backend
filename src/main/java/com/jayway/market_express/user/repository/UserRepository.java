@@ -1,4 +1,4 @@
-package com.jayway.market_express.user;
+package com.jayway.market_express.user.repository;
 
 import com.jayway.market_express.user.document.UserEntity;
 import org.springframework.data.mongodb.repository.MongoRepository;

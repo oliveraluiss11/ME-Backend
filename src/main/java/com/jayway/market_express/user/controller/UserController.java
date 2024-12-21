@@ -1,5 +1,8 @@
-package com.jayway.market_express.user;
+package com.jayway.market_express.user.controller;
 
+import com.jayway.market_express.user.service.UserService;
+import com.jayway.market_express.user.dto.CreateUserRequest;
+import com.jayway.market_express.user.dto.CreateUserResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

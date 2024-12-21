@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.temporal.ChronoUnit;
 import java.util.Optional;
+import java.util.Random;
 
 import static com.jayway.market_express.common.constant.ErrorCodeConstant.*;
 import static com.jayway.market_express.common.constant.MessageConstant.*;
@@ -34,14 +35,11 @@ public class OtpServiceImpl implements OtpService {
                     otp = otp.updateStatus(EntityStatusType.EXPIRED.getCode());
                     otpRepository.save(otp);
                 });
-        // TODO: Cuando sea pase a marcha blanca se activará
-        // String otp = String.valueOf(new Random().nextInt(900000) + 100000);
-        String otp = "111111";
+         String otp = String.valueOf(new Random().nextInt(900000) + 100000);
         OtpEntity otpEntity = OtpEntity.create(cellphone, otp);
         otpRepository.save(otpEntity);
         String otpMessage = StringUtil.buildConstantMessageFromText(otp, OTP_MESSAGE);
-        // TODO: Cuando sea pase a marcha blanca se activará
-        //twilioRepository.sendSms(cellphone, otpMessage);
+        twilioRepository.sendSms(cellphone, otpMessage);
     }
 
     @Override
