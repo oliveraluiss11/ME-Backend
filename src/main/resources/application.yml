@@ -6,23 +6,23 @@ spring:
       uri: mongodb+srv://${DB_USERNAME}:${DB_PASSWORD}@${DB_HOST}/${DB_NAME}?retryWrites=true&w=majority&appName=${DB_HOST}
 
 jwt:
-  key: ${jwt.key}
+  key: ${JWT_KEY}
 
 api:
-  key: ${api.key}
+  key: ${API_KEY}
 
 twilio:
-  account-sid: ${twilio.account-sid}
-  auth-token: ${twilio.auth-token}
-  from-number: ${twilio.from-number}
+  account-sid: ${TWILIO_ACCOUNT_SID}
+  auth-token: ${TWILIO_AUTH_TOKEN}
+  from-number: ${TWILIO_FROM_NUMBER}
 
 reniec:
-  url: ${reniec.url}
-  token: ${reniec.token}
+  url: ${RENIEC_URL}
+  token: ${RENIEC_TOKEN}
 
 cors:
   allowed:
-    origin: ${cors.allowed.origin}
+    origin: ${CORS_ALLOWED_ORIGIN}
 management:
   endpoints:
     web:
@@ -39,3 +39,7 @@ management:
 logging:
   level:
     org.springframework.security: DEBUG
+
+firebase:
+  bucket:
+    name: ${FIREBASE_BUCKET_NAME}
