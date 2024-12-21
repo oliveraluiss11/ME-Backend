@@ -41,5 +41,7 @@ logging:
     org.springframework.security: DEBUG
 
 firebase:
+  service:
+    account-key: ${FIREBASE_SERVICE_ACCOUNT_KEY}
   bucket:
     name: ${FIREBASE_BUCKET_NAME}

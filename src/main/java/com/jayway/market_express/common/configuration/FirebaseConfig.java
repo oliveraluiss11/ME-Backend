@@ -11,8 +11,6 @@ import org.springframework.context.annotation.Configuration;
 import java.io.FileInputStream;
 import java.io.IOException;
 
-import static com.jayway.market_express.common.constant.LocalPathConstant.SERVICE_ACCOUNT_KEY;
-
 @Configuration
 @RequiredArgsConstructor
 public class FirebaseConfig {
@@ -20,7 +18,8 @@ public class FirebaseConfig {
     @Bean
     public FirebaseApp firebaseApp() throws IOException {
         String bucketName = environmentUtil.getFirebaseBucketName();
-        FileInputStream serviceAccount = new FileInputStream(SERVICE_ACCOUNT_KEY);
+        String serviceAccountKey = environmentUtil.getFirebaseServiceAccountKey();
+        FileInputStream serviceAccount = new FileInputStream(serviceAccountKey);
         FirebaseOptions options = FirebaseOptions.builder()
                 .setCredentials(GoogleCredentials.fromStream(serviceAccount))
                 .setStorageBucket(bucketName)

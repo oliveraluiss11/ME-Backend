@@ -70,4 +70,12 @@ public class EnvironmentUtil {
         return Optional.ofNullable(property)
                 .orElseThrow(() -> GenericClientException.create(message, HttpStatus.NOT_FOUND));
     }
+
+    public String getFirebaseServiceAccountKey() {
+        String name = FIREBASE_SERVICE_ACCOUNT_KEY;
+        String property = environment.getProperty(name);
+        String message = StringUtil.buildConstantMessageFromText(name, NOT_FOUND_MESSAGE);
+        return Optional.ofNullable(property)
+                .orElseThrow(() -> GenericClientException.create(message, HttpStatus.NOT_FOUND));
+    }
 }
