@@ -25,6 +25,7 @@ public class FirebaseConfig {
                 .setStorageBucket(bucketName)
                 .build();
         return FirebaseApp.initializeApp(options);
+
     }
 
 }
